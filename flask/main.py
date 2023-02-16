@@ -44,7 +44,3 @@ app.run(host='0.0.0.0', port=81)
 def monopolyDiceStats():
   #render_template()
   return None
-
-@app.route('/riskStatistics/')
-def riskDiceStats():
-  return None
