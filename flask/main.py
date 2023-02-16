@@ -42,5 +42,5 @@ app.run(host='0.0.0.0', port=81)
 
 @app.route('/monopolyDice/')
 def monopolyDiceStats():
-  #render_template()
+  render_template('dice_statistics.html')
   return None
