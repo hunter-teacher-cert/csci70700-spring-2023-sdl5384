@@ -16,24 +16,19 @@ def welcomePage():
 
 @app.route('/login/',methods=['GET','POST'])
 def logInToPage():
-    if request.method == "GET":
-        return render_template("login.html",todos=session["todo_list"])
+    if "todo_list" not in session:
+        session["todo_list"] = []
+    
+
+    if request.form['submit'] == 'doit':
+        l = session["todo_list"]
+        l.append(item)
+        session["todo_list"] = l
+
     else:
-        print(request.form)
-        item = request.form["TODO"]
-        if "todo_list" not in session:
-            session["todo_list"] = []
-            return render_template("login.html",todos=session["todo_list"])
-
-        if request.form['submit'] == 'doit':
-            l = session["todo_list"]
-            l.append(item)
-            session["todo_list"] = l
-            return render_template("login.html",todos=session["todo_list"])
-
-        else:
-            session["todo_list"] = []
-            return render_template("login_html",todos=session["todo_list"])
+        session["todo_list"] = []
+        
+    return render_template("login_html",todos=session["todo_list"])
 
 @app.route('/rollTheDice/')
 def rollTheDice():
@@ -48,6 +43,9 @@ def rollTheDice():
     else:
         session["count"] = session["count"] + 1
 
+    if "diceAvg" not in session:
+        sesstion["diceAvg"] = 0
+
     if "die1" not in session or "die2" not in session or "die3" not in session or "die4" not in session or "die5" not in session:
         session["die1"] = 0
         session["die2"] = 0
@@ -61,9 +59,6 @@ def rollTheDice():
         session["die4"] = r.randint(1,6)
         session["die5"] = r.randint(1,6)
 
-    if session["diceAvg"] not in session:
-        session["diceAvg"] = 0
-    else:
         session["diceAvg"] = session["diceAvg"] + 1
         
     return render_template("diceSimulation.html",session=session)
