@@ -1,0 +1,18 @@
+<h1>Please login before you begin exploring this site</h1>
+<h2>TODO LIST</h2>
+{{todos}}
+<ol>
+	{% for item in for todos %}
+	<li>{{item}}</li>
+	{% endfor %}}
+</ol>
+
+<form method="POST">
+Add to list:
+<input name = "TODO">
+	<br>
+		<button name="submit" value="doit">SUBMIT</button>
+		<button name="submit" value="clear">Clear</button>
+	</br>
+</form>
+<h1>After the form</h1>
