@@ -44,7 +44,7 @@ def rollTheDice():
         session["count"] = session["count"] + 1
 
     if "diceAvg" not in session:
-        sesstion["diceAvg"] = 0
+        session["diceAvg"] = 0
 
     if "die1" not in session or "die2" not in session or "die3" not in session or "die4" not in session or "die5" not in session:
         session["die1"] = 0
