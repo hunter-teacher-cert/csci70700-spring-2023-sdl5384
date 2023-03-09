@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <!-- I was trying to build or create a triangle with billiard balls to scale and a pool table here-->
+      <!-- There was a LOT OF MATH I did for this, but it still did not come out right-->
+      <!-- I had to figure out where the origin was in relation to the pool table surface, as well as how the balls should be placed-->
+      <!-- This required multiple translations along the x and z since to keep the balls the same dimensions I could only go up 1.25 along the y-axis-->
+      <!-- I slowly learned that you needed to assume that if you are using spheres, then you think about where the objects are in regards from the center. -->
+      <!-- The center is where the coordinates really matter, much like the standard equation of a circle in analytic geometry-->
+      <a-sphere position="0 1.25 0" radius="1.25" color="black"></a-sphere>
+      <a-sphere position="2.15 1.25 1.25" radius="1.25" color="red"></a-sphere>
+      <a-sphere position="4.3 1.25 2.5" radius="1.25" color="blue"></a-sphere>
+      <a-sphere position="6.45 1.25 3.75" radius="1.25" color="yellow"></a-sphere>
+      <a-sphere position="1.25 1.25 2.5" radius="1.25" color="green"></a-sphere>
+      <a-sphere position="3.75 1.25 6.75" radius="1.25" color="orange"></a-sphere>
+      <a-plane position="0 0 0" rotation="-90 0 0" width="42" height="84" color="brown"></a-plane>
+      <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+  </body>
+</html>
